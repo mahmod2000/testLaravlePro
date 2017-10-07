@@ -1,8 +1,12 @@
 @extends('layout')
 
+@section('page-title', 'پیام های دریافت شده کاربر')
+@section('meta-desc', 'پیام های دریافت شده کاربر')
+@section('meta-keyword', 'پیام های دریافت شده کاربر')
+
 @section('content')
     @include('user.user-navbar')
-    <div class="col-8 p3">
+    <div class="col-8">
     <div class="card text-right">
         <div class="card-title m-3">
             پیام ها
@@ -27,7 +31,7 @@
                             @endif
                         </td>
                         <td>
-                            <a class="btn btn-danger btn-sm" href="javascript:void(0)" onclick="if(confirm('برای حذف این آیتم مطمئن هستید؟'))
+                            <a class="btn btn-danger btn-sm clearfix" href="javascript:void(0)" onclick="if(confirm('برای حذف این آیتم مطمئن هستید؟'))
                                     {
                                     removeOne({{$notification->id}})
                                     }">

@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('page-title', 'صفحه اصلی')
+@section('meta-desc', 'صفحه اصلی سایت')
+@section('meta-keyword', 'صفحه،اصلی،سایت')
+
 @section('content')
 
     @include('includes.heading', $posts)

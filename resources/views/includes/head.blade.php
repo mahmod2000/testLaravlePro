@@ -1,8 +1,8 @@
-<title>پروژه تست لاراول</title>
+<title>@yield('page-title')</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="keywords" content="">
+<meta name="description" content="@yield('meta-desc')">
+<meta name="keywords" content="@yield('meta-keyword')">
 <meta name="csrf-token" content="{{csrf_token()}}">
 
 @yield('meta')

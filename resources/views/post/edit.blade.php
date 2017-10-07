@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('page-title', 'ویرایش پست')
+@section('meta-desc', 'ویرایش پست')
+@section('meta-keyword', 'ویرایش پست')
+
 @section('content')
     @include('user.user-navbar')
     <div class="col-8 p-3">

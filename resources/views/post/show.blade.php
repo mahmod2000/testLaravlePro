@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('page-title', $post->title)
+@section('meta-desc', $post->title)
+@section('meta-keyword', $post->title)
+
 @section('content')
 
         <!-- Post Content Column -->

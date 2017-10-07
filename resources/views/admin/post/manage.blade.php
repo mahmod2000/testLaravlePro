@@ -1,5 +1,10 @@
 @extends('layout')
 
+@section('page-title', 'مدیریت پست های غیر فعال')
+@section('meta-desc', 'مدیریت پست های غیر فعال')
+@section('meta-keyword', 'مدیریت پست های غیر فعال')
+
+
 @section('content')
     @include('admin.includes.navbar')
     <div class="col-8 p-3">

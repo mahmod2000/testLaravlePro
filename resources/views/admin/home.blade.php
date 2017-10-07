@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('page-title', 'پنل مدیریت')
+@section('meta-desc', 'پنل مدیریت')
+@section('meta-keyword', 'پنل مدیریت')
+
 @section('content')
     @include('admin.includes.navbar')
 

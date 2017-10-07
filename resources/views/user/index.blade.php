@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('page-title', 'صفحه اصلی پنل کاربر')
+@section('meta-desc', 'صفحه اصلی پنل کاربر')
+@section('meta-keyword', 'صفحه اصلی پنل کاربر')
+
 @section('content')
     @include('user.user-navbar')
 

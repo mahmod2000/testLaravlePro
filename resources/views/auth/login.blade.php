@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('page-title', 'ورود کاربر')
+@section('meta-desc', 'ورود کاربر')
+@section('meta-keyword', 'ورود کاربر')
+
 @section('content')
 <div class="col-12 text-right p-3">
     <div class="card">
