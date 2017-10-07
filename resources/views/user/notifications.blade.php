@@ -36,10 +36,9 @@
                                     removeOne({{$notification->id}})
                                     }">
                                 <i class="fa fa-trash-o fa-lg"></i> حذف </a>
-                            <a class="btn btn-primary btn-sm" href="{{route('user.readNotification', $notification->id)}}">
-                                @if($notification->read == 0) <i class="fa fa-cog"></i> فعال کردن پست </a>
-                            @else <i class="fa fa-cog"></i> غیر فعال کردن پست </a>
-                            @endif
+                                @if($notification->read == 0)  <a class="btn btn-primary btn-sm" href="{{route('user.readNotification', $notification->id)}}">  خوانده نشده </a>
+                                @else <span class="btn btn-success btn-sm"> خوانده شده </span>
+                                @endif
 
                         </td>
                     </tr>

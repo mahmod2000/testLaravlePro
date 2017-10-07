@@ -31,7 +31,7 @@
             <hr>
 
             <!-- Post Content -->
-            {!!  $post->title !!}
+            {!!  $post->content !!}
 
             <hr>
 
