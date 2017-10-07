@@ -192,15 +192,16 @@ class PostController extends Controller
 		echo json_encode(['status'=>1,'message'=>'آیتم های مورد نظر حذف شد!']);
     }
 
+	/**
+	 * @param $user_id
+	 */
 	public function exportPdf($user_id)
 	{
 		$posts = Post::whereUserId($user_id)->get();
-//		return $posts;
-		$pdf = PDF::loadView('post.pdf', compact('posts'));
-//		dd($pdf);
-		return $pdf->stream('posts.pdf');
-//		$pdf = App::make('dompdf.wrapper');
-//		$pdf->loadView('post.pdf', compact('posts'));
-//		return $pdf->stream();
+		PDF::SetTitle('Post Title');
+		PDF::AddPage();
+		$view = view('post.pdf', compact('posts'))->render();
+		PDF::writeHTML($view);
+		PDF::Output('posts.pdf');
     }
 }

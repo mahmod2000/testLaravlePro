@@ -179,7 +179,8 @@ return [
 
 	    Laravel\Socialite\SocialiteServiceProvider::class,
 //	    Barryvdh\DomPDF\ServiceProvider::class,
-	    niklasravnsborg\LaravelPdf\PdfServiceProvider::class
+//	    niklasravnsborg\LaravelPdf\PdfServiceProvider::class
+	    Elibyy\TCPDF\ServiceProvider::class,
 
     ],
 
@@ -231,7 +232,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 //        'PDF' => Barryvdh\DomPDF\Facade::class,
-        'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class
+//        'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class
+        'PDF' => Elibyy\TCPDF\Facades\TCPDF::class
 
     ],
 
