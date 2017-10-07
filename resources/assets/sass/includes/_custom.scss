@@ -1,0 +1,14 @@
+body {
+  padding-top: 54px;
+  font-family: IRANSans, "Open sans", Helvetica, Arial, sans-serif;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+span.text-checkbox {
+  margin-right: 20px;
+}
