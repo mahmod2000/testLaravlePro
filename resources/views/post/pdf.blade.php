@@ -4,6 +4,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <style>
         * { font-family: IRANSans; }
+        .row{
+            width: 100%;
+        }
+        .col-4 {
+            width: 50px !important;
+            display: inline-block;
+            border: 1px solid gray;
+            margin: 5px 8px;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>

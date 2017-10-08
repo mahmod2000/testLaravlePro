@@ -9,7 +9,7 @@
     <div class="col-lg-4">
         <h1 class="text-right">{{$posts->first()->title}}</h1>
         <p class="text-right">{{$posts->first()->content}}</p>
-        <a class="btn btn-primary btn-lg" href="#">اطلاعات بیشتر</a>
+        <a class="btn btn-primary btn-lg" href="{{route('post.show', $posts->first())}}">اطلاعات بیشتر</a>
     </div>
     <!-- /.col-md-4 -->
 </div>

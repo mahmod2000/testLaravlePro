@@ -13,9 +13,15 @@
         @include('messages.message')
 
         <div class="card-body">
-            <div class="p-3"> <a class="btn btn-danger" href="javascript:void(0)" onclick="destroyAll()">
-                <i class="fa fa-trash-o fa-lg"></i> حذف موارد انتخاب شده </a>
+            <div class="p-3">
+                <div class="text-center">
                 @if(auth()->user()->hasRole('superadministrator|post-author|post-admin')) <a href="{{route('post.create')}}" class="btn btn-primary">ایجاد پست جدید</a> @endif
+                <a href="{{route('post.exportPdf', auth()->user()->id)}}" class="btn btn-warning" target="_blank"> تولید (خروجی) فایل PDF از پست ها </a>
+                </div>
+                <div class="mt-4">
+                    <a class="btn btn-danger" href="javascript:void(0)" onclick="destroyAll()">
+                    <i class="fa fa-trash-o fa-lg"></i> حذف موارد انتخاب شده </a>
+                </div>
             </div>
             <table class="table table-bordered table-hover">
                 <thead>

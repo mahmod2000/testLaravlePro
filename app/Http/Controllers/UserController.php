@@ -7,10 +7,12 @@ use App\Permission;
 use App\Post;
 use App\Role;
 use App\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Intervention\Image\Facades\Image;
@@ -24,7 +26,24 @@ class UserController extends Controller
 	/**
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function index() {
+	public function index(Request $request) {
+		$user = Auth::user();
+
+		/**
+		 * If Redis is running, the following code will work.
+		 */
+//		$user_cached_data = Redis::get('user:profile:'.Auth::id());
+//		if($user_cached_data) $user_data = json_decode($user_cached_data, true);
+//		else
+//		{
+//			$user_data = [
+//				'name'=>$user->name,
+//				'email'=>$user->email,
+//				'IP'=>$request->ip()
+//			];
+//			Redis::set('user:profile:'.Auth::id(),json_encode($user_data));
+//	    }
+
 		return view('user.index');
 	}
 

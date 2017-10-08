@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\custom_functions;
 use App\Post;
+use Elibyy\TCPDF\TCPDF;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Redis;
 use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +27,7 @@ class PostController extends Controller
      */
     public function index()
     {
-    	$posts = Post::whereEnabled(1)->whereConfirmAdminPost(1)->paginate(6);
+	    $posts = Post::whereEnabled(1)->whereConfirmAdminPost(1)->paginate(6);
         return view('post.index', compact('posts'));
     }
 
@@ -198,10 +200,50 @@ class PostController extends Controller
 	public function exportPdf($user_id)
 	{
 		$posts = Post::whereUserId($user_id)->get();
-		PDF::SetTitle('Post Title');
-		PDF::AddPage();
+
+		$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+//		$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 018', PDF_HEADER_STRING);
+
+		// set header and footer fonts
+//		$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+//		$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+//
+//		// set default monospaced font
+//		$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+//
+//		// set margins
+//		$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+//		$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+//		$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+		// set auto page breaks
+//		$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+		// set image scale factor
+//		$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+		// set some language dependent data:
+		$lg = Array();
+		$lg['a_meta_charset'] = 'UTF-8';
+		$lg['a_meta_dir'] = 'rtl';
+		$lg['a_meta_language'] = 'fa';
+		$lg['w_page'] = 'page';
+
+		// set some language-dependent strings (optional)
+		$pdf->setLanguageArray($lg);
+
+		// set font
+		$pdf->SetFont('dejavusans', '', 12);
+
+		// add a page
+		$pdf->AddPage();
+
+		// Persian and English content
 		$view = view('post.pdf', compact('posts'))->render();
-		PDF::writeHTML($view);
-		PDF::Output('posts.pdf');
+//		return $view;
+		$pdf->WriteHTML($view, true, 0, true, 0);
+
+		//Close and output PDF document
+		$pdf->Output('posts.pdf', 'I');
     }
 }
